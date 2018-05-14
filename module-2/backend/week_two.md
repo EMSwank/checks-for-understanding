@@ -50,7 +50,7 @@ schema = the layout/design of a table
 the foreign key on one table is the reference/primary key for another table.
 
 8. What are the parts of an HTTP response?
-status code, headers, body
+status code, headers, body.
 
 ### Optional Questions
 
