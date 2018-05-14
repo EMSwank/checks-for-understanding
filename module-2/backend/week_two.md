@@ -8,6 +8,8 @@ Note: When you're done, submit a PR.
 ### Week 2 Questions
 
 1. At a high level, what is ActiveRecord? What does it do/allow you to do?
+ActiveRecord is Rails' ORM. It abstracts away many of the database queries and allows you to call items from the db in a simple way, using objects.
+
 2. Assume you have the following model:
 
 ```ruby
@@ -16,8 +18,12 @@ end
 ```
 
 What are some methods you can call on `Team`? If these methods aren't defined in the class, how do you have access to them?
+#new, #create, #find, #destroy
+We get these methods from inheriting from the ActiveRecord Base class.
 
 3. Assume that in your database, a team has the following attributes: "id", "name", owner_id". How would you find the name of a team with an id of 4? Assuming your class only included the code from question 2, how could you find the owner of the same team?
+team = Team.find(4)
+team.name
 
 4. Assume that you added a line to your `Team` class as follows:
 
@@ -28,12 +34,23 @@ end
 ```
 
 Now how would you find the owner of the team with an id of 4?
+team = Team.find(4)
+team.owner
 
 5. In a database that's holding students and teachers, what will be the relationship between students and teachers? Draw the schema diagram.
-6. Define foreign key, primary key, and schema.
-7. Describe the relationship between a foreign key on one table and a primary key on another table.
-8. What are the parts of an HTTP response?
+teacher has_many students
+students belong_to teacher
 
+6. Define foreign key, primary key, and schema.
+foreign key = the column in a table that represents the primary key to another table in the database.
+primary key = usually the incremented id of a row in a table that represents the unique id of information in a row.
+schema = the layout/design of a table
+
+7. Describe the relationship between a foreign key on one table and a primary key on another table.
+the foreign key on one table is the reference/primary key for another table.
+
+8. What are the parts of an HTTP response?
+status code, headers, body
 
 ### Optional Questions
 
@@ -49,12 +66,7 @@ Now how would you find the owner of the team with an id of 4?
 
 ### Self Assessment:
 Choose One:
-* I was able to answer every question without relying on outside resources
 * I was able to answer most questions independently, but utilized outside resources for a few
-* I was able to answer a few questions independently, but relied heavily on outside resources 
 
 Choose One:
-* I feel confident about the content presented this week
 * I feel comfortable with the content presented this week
-* I feel overwhelmed by the content presented this week
-* I feel quite lost by the content presented this week
