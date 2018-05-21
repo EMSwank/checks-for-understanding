@@ -22,6 +22,7 @@ rake routes - Give you all available routes to call
 6. What is an example of a route helper? When would you use them?
 '/user/:id' You use them to tell which controller to use.
 7. What's the difference between what `_url` and `_path` return when combined with a routes prefix?
+url is actually the url, while path is a rails route
 8. What are strong params and why are they necessary?
 They sanitize the incoming data so as to guard against an SQL injection attack
 9. What role does `form_for` play in helping us create our forms?
