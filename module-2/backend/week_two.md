@@ -18,8 +18,9 @@ end
 ```
 
 What are some methods you can call on `Team`? If these methods aren't defined in the class, how do you have access to them?
-#new, #create, #find, #destroy
-We get these methods from inheriting from the ActiveRecord Base class.
+.find, .group, .new, .create, .save
+
+We get these methods from inheriting from the ActiveRecord::Base class.
 
 3. Assume that in your database, a team has the following attributes: "id", "name", owner_id". How would you find the name of a team with an id of 4? Assuming your class only included the code from question 2, how could you find the owner of the same team?
 team = Team.find(4)
@@ -35,11 +36,25 @@ end
 
 Now how would you find the owner of the team with an id of 4?
 team = Team.find(4)
-team.owner
+team.owner.name
 
 5. In a database that's holding students and teachers, what will be the relationship between students and teachers? Draw the schema diagram.
 teacher has_many students
 students belong_to teacher
+
+create_table "students", force: :cascade do |t|
+    t.string "name"
+    t.integer "teacher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+create_table "Teacher", force: :cascade do |t|
+    t.string "name"
+    t.string "school"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 6. Define foreign key, primary key, and schema.
 foreign key = the column in a table that represents the primary key to another table in the database.
@@ -66,7 +81,7 @@ status code, headers, body.
 
 ### Self Assessment:
 Choose One:
-* I was able to answer most questions independently, but utilized outside resources for a few
+* I was able to answer all questions independently.
 
 Choose One:
 * I feel comfortable with the content presented this week
